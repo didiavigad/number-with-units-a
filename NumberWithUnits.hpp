@@ -7,13 +7,13 @@ namespace ariel{
     
     class NumberWithUnits{
         
-        private:
+       	public:
             static inline map<string, double> table;
-            double size;
             string sys;
+            double size;
+            
         
-        public:
-            //constructor with params
+                    //constructor with params
             NumberWithUnits(double size, string sys){
                 this->size = size;
                 this->sys = sys;
@@ -23,36 +23,36 @@ namespace ariel{
             //read file
             static void read_units(ifstream& file);
             //bool functions overloading
-            friend bool operator<(const NumberWithUnits& n1, const NumberWithUnits& n2);
-            friend bool operator>(const NumberWithUnits& n1, const NumberWithUnits& n2);
-            friend bool operator<=(const NumberWithUnits& n1, const NumberWithUnits& n2);
-            friend bool operator>=(const NumberWithUnits& n1, const NumberWithUnits& n2);
-            friend bool operator==(const NumberWithUnits& n1, const NumberWithUnits& n2);
-            friend bool operator!=(const NumberWithUnits& n1, const NumberWithUnits& n2);
+            friend bool operator<(const NumberWithUnits& x, const NumberWithUnits& y);
+            friend bool operator>(const NumberWithUnits& x, const NumberWithUnits& y);
+            friend bool operator<=(const NumberWithUnits& x, const NumberWithUnits& y);
+            friend bool operator>=(const NumberWithUnits& x, const NumberWithUnits& y);
+            friend bool operator==(const NumberWithUnits& x, const NumberWithUnits& y);
+            friend bool operator!=(const NumberWithUnits& x, const NumberWithUnits& y);
 
             //arithmetic functions overloading
 
             //plus
-            friend const NumberWithUnits operator+(const NumberWithUnits& n1, const NumberWithUnits& n2);
-            friend NumberWithUnits operator+(const NumberWithUnits& n);
-            friend NumberWithUnits& operator+=(NumberWithUnits& n1, const NumberWithUnits& n2);
-            friend NumberWithUnits operator++(NumberWithUnits& n);
-            friend NumberWithUnits operator++(NumberWithUnits& n, int);
+            friend const NumberWithUnits operator+(const NumberWithUnits& x, const NumberWithUnits& y);
+            friend NumberWithUnits operator+(const NumberWithUnits& other);
+            friend NumberWithUnits& operator+=(NumberWithUnits& x, const NumberWithUnits& y);
+            friend NumberWithUnits operator++(NumberWithUnits& other);
+            friend NumberWithUnits operator++(NumberWithUnits& other, int num);
             //minus
-            friend const NumberWithUnits operator-(const NumberWithUnits& n1, const NumberWithUnits& n2);
-            friend NumberWithUnits operator-(const NumberWithUnits& n);
-            friend NumberWithUnits& operator-=(NumberWithUnits& n1, const NumberWithUnits& n2);
-            friend NumberWithUnits operator--(NumberWithUnits& n);
-            friend NumberWithUnits operator--(NumberWithUnits& n, int);
+            friend const NumberWithUnits operator-(const NumberWithUnits& x, const NumberWithUnits& y);
+            friend NumberWithUnits operator-(const NumberWithUnits& other);
+            friend NumberWithUnits& operator-=(NumberWithUnits& x, const NumberWithUnits& y);
+            friend NumberWithUnits operator--(NumberWithUnits& other);
+            friend NumberWithUnits operator--(NumberWithUnits& other, int num);
             //multiply
-            friend NumberWithUnits operator*(NumberWithUnits& n, double d);
-            friend NumberWithUnits operator*(double d, NumberWithUnits& n);
-            friend NumberWithUnits operator*=(NumberWithUnits& n, double d);
-            friend NumberWithUnits operator*=(double d, NumberWithUnits& n);
+            friend NumberWithUnits operator*(NumberWithUnits& other, double num);
+            friend NumberWithUnits operator*(double num, NumberWithUnits& other);
+            friend NumberWithUnits operator*=(NumberWithUnits& other, double num);
+            friend NumberWithUnits operator*=(double num,NumberWithUnits& other);
             
             //stream funstions overloading
-            friend std::ostream& operator<<(ostream& out, const NumberWithUnits& n);
-            friend std::istream& operator>>(istream& in, NumberWithUnits& n);
+            friend std::ostream& operator<<(ostream& out, const NumberWithUnits& other);
+            friend std::istream& operator>>(istream& in, NumberWithUnits& other);
 
     };
 }
